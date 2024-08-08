@@ -1,6 +1,8 @@
 'use client'
 
 import HomeScreenWrapper from "@/components/HomeScreenWrapper";
+import { socialLinks } from "@/utils/socialLinks";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Home = () => {
@@ -24,7 +26,7 @@ const Home = () => {
 
     return (
         <HomeScreenWrapper>
-            <div className="flex flex-col justify-center items-center h-screen">
+            <div className="flex flex-col justify-center items-center h-screen relative">
                 <h1 className="text-[85px] font-bold !mb-0 text-center">
                     Hi, I'm
                     <span className="text-yellow-300"> {name}</span>
@@ -58,6 +60,27 @@ const Home = () => {
                     ">
                         Let's Talk
                     </button>
+                </div>
+
+                <div className="absolute flex gap-2 bottom-3 lg:flex-col lg:left-2 lg:bottom-auto">
+                    {
+                        socialLinks.map((link) => (
+                            <a 
+                                key={link?.id}
+                                href={link.href} 
+                                target="_blank" 
+                                className="transition-transform duration-150 hover:scale-[115%] ease-linear"
+                            >
+                                <Image 
+                                    src={link.imageSrc} 
+                                    height={38}
+                                    width={38} 
+                                    alt={link.name}
+                                />
+                            </a>
+                        ))
+                    }
+                    <div></div>
                 </div>
             </div>
         </HomeScreenWrapper>
