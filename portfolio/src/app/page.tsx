@@ -26,7 +26,7 @@ const Home = () => {
 
     return (
         <HomeScreenWrapper>
-            <div className="flex flex-col justify-center items-center h-screen relative">
+            <div className="h-[calc(100vh-3.5rem)] flex flex-col justify-center items-center relative">
                 <h1 className="text-[85px] font-bold !mb-0 text-center">
                     Hi, I'm
                     <span className="text-yellow-300"> {name}</span>
@@ -62,14 +62,26 @@ const Home = () => {
                     </button>
                 </div>
 
-                <div className="absolute flex gap-2 bottom-3 lg:flex-col lg:left-2 lg:bottom-auto">
+                <div className="
+                    absolute 
+                    flex gap-2 
+                    bottom-3 
+                    lg:flex-col 
+                    lg:left-2 
+                    lg:bottom-auto"
+                >
                     {
                         socialLinks.map((link) => (
                             <a 
                                 key={link?.id}
                                 href={link.href} 
                                 target="_blank" 
-                                className="transition-transform duration-150 hover:scale-[115%] ease-linear"
+                                className="
+                                    transition-transform 
+                                    duration-150 
+                                    hover:scale-[115%] 
+                                    ease-linear
+                                "
                             >
                                 <Image 
                                     src={link.imageSrc} 
